@@ -1,0 +1,1028 @@
+/* 1. FONTES E VARIÁVEIS */
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+
+:root {
+    --pink: #ff69c8;
+    --pink-dark: #d9369c;
+    --pink-light: #ffd6ef;
+
+    --purple: #a987ff;
+    --purple-dark: #7654c6;
+    --purple-light: #e8ddff;
+
+    --blue: #83dfff;
+    --yellow: #ffe36e;
+
+    --dark: #30213d;
+    --dark-soft: #58456b;
+
+    --white: #fffaff;
+    --gray: #817493;
+    --background: #f4eaff;
+
+    --font-pixel: "Press Start 2P", monospace;
+    --font-retro: "VT323", monospace;
+
+    --border: 3px solid var(--dark);
+    --shadow: 5px 5px 0 var(--dark);
+}
+
+   /* 2. RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    color: var(--dark);
+    background: var(--background);
+
+    font-family: var(--font-retro);
+    font-size: 22px;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px dashed var(--pink-dark);
+    outline-offset: 4px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+   /* 3. FUNDO */
+
+.background-grid {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    pointer-events: none;
+
+    background-color: #f2e8ff;
+
+    background-image:
+        linear-gradient(
+            rgba(169, 135, 255, 0.18) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(169, 135, 255, 0.18) 1px,
+            transparent 1px
+        );
+
+    background-size: 16px 16px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 105, 200, 0.13),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(131, 223, 255, 0.17),
+            transparent 28%
+        );
+}
+
+   /* 4. CABEÇALHO */
+
+.topbar {
+    width: 100%;
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+    padding: 15px 5%;
+
+    background: var(--dark);
+    color: var(--white);
+
+    border-bottom: 5px solid var(--pink);
+    box-shadow: 0 5px 0 rgba(48, 33, 61, 0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--pink);
+
+    font-family: var(--font-pixel);
+    font-size: 14px;
+}
+
+.logo-icon {
+    color: var(--yellow);
+    font-size: 20px;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #c8ffc7;
+
+    font-family: var(--font-pixel);
+    font-size: 8px;
+}
+
+.online-dot {
+    width: 9px;
+    height: 9px;
+
+    background: #7dff91;
+    border-radius: 50%;
+
+    box-shadow: 0 0 8px #7dff91;
+}
+
+.collection-button {
+    padding: 11px 15px;
+
+    color: var(--dark);
+    background: var(--yellow);
+
+    border: 2px solid var(--white);
+    box-shadow: 3px 3px 0 var(--pink-dark);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+
+    transition: transform 0.15s ease;
+}
+
+.collection-button:hover {
+    transform: translate(-2px, -2px);
+}
+
+#savedCount {
+    display: inline-block;
+    margin-left: 5px;
+    color: var(--pink-dark);
+}
+
+
+   /* 5. CONTEÚDO PRINCIPAL */
+
+.container {
+    width: min(1150px, 92%);
+    margin: 0 auto;
+    padding: 45px 0 30px;
+}
+
+
+   /* 6. APRESENTAÇÃO */
+
+.welcome {
+    margin: 15px auto 45px;
+    text-align: center;
+}
+
+.pixel-label {
+    display: inline-block;
+
+    margin-bottom: 20px;
+    padding: 10px 14px;
+
+    color: var(--pink-dark);
+    background: var(--white);
+
+    border: 2px dashed var(--pink);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+}
+
+.welcome h1 {
+    margin-bottom: 18px;
+
+    color: var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: clamp(20px, 4vw, 34px);
+    line-height: 1.8;
+}
+
+.welcome h1 span {
+    display: block;
+
+    color: var(--pink-dark);
+    text-shadow: 3px 3px 0 var(--pink-light);
+}
+
+.welcome-description {
+    max-width: 650px;
+    margin: 0 auto;
+
+    color: var(--dark-soft);
+
+    font-family: var(--font-retro);
+    font-size: 26px;
+}
+
+.decorative-stars {
+    margin-top: 20px;
+
+    color: var(--purple);
+    font-size: 25px;
+
+    letter-spacing: 8px;
+}
+
+   /* 7. ESTÚDIO PRINCIPAL */
+
+.studio {
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 4px solid var(--dark);
+    box-shadow: var(--shadow);
+}
+
+
+/* Barra superior da janela */
+
+.window-header {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+    padding: 10px 17px;
+
+    color: var(--dark);
+    background: var(--purple);
+
+    border-bottom: 4px solid var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 10px;
+}
+
+.window-controls {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.window-controls span {
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--dark);
+    background: var(--pink);
+
+    border: 2px solid var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+}
+
+
+/* Conteúdo interno em duas colunas */
+
+.studio-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+    gap: 22px;
+
+    padding: 22px;
+    align-items: stretch;
+}
+
+   /* 8. ÁREA DO PERSONAGEM */
+
+.character-area {
+    min-width: 0;
+    padding: 17px;
+
+    background: #fff4fc;
+
+    border: 3px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--pink-light);
+}
+
+.character-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    color: var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+}
+
+
+   /* 9. PALCO DO PERSONAGEM */
+
+.character-stage {
+    position: relative;
+
+    min-height: 430px;
+    padding: 20px 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-color: #f7cce9;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.42) 25%,
+            transparent 25%,
+            transparent 75%,
+            rgba(255, 255, 255, 0.42) 75%
+        ),
+        linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.42) 25%,
+            transparent 25%,
+            transparent 75%,
+            rgba(255, 255, 255, 0.42) 75%
+        );
+
+    background-position:
+        0 0,
+        10px 10px;
+
+    background-size: 20px 20px;
+
+    border: 3px solid var(--white);
+    outline: 2px solid var(--pink);
+}
+
+
+/* Personagem */
+
+#avatar {
+    position: relative;
+    z-index: 2;
+
+    width: 250px;
+    height: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    image-rendering: pixelated;
+    animation: floating 3s ease-in-out infinite;
+}
+
+#avatar svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+
+    shape-rendering: crispEdges;
+    image-rendering: pixelated;
+}
+
+
+/* Estrelinhas */
+
+.pixel-star {
+    position: absolute;
+    z-index: 1;
+
+    color: var(--white);
+    font-family: var(--font-pixel);
+
+    pointer-events: none;
+}
+
+.star-one {
+    top: 16%;
+    left: 10%;
+
+    font-size: 22px;
+}
+
+.star-two {
+    top: 35%;
+    right: 10%;
+
+    color: var(--purple);
+    font-size: 18px;
+}
+
+
+/* Chão decorativo */
+
+.stage-floor {
+    position: absolute;
+    z-index: 0;
+
+    width: 190px;
+    height: 12px;
+
+    left: 50%;
+    bottom: 20px;
+
+    transform: translateX(-50%);
+
+    background: rgba(118, 84, 198, 0.18);
+
+    border-radius: 50%;
+}
+
+
+   /* 10. NOME DO PERSONAGEM */
+
+.name-area {
+    margin-top: 22px;
+}
+
+.name-area label {
+    display: block;
+    margin-bottom: 9px;
+
+    color: var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+}
+
+#avatarName {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 11px;
+
+    color: var(--dark);
+    background: var(--white);
+
+    border: 3px solid var(--dark);
+    box-shadow: 3px 3px 0 var(--pink);
+
+    font-family: var(--font-retro);
+    font-size: 25px;
+}
+
+#avatarName:focus {
+    outline: none;
+    border-color: var(--pink-dark);
+}
+
+
+   /* 11. BOTÕES DE AÇÃO */
+
+.main-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.pixel-button {
+    min-height: 52px;
+    padding: 10px;
+
+    border: 3px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.pixel-button.pink {
+    color: var(--dark);
+    background: var(--pink);
+}
+
+.pixel-button.purple {
+    color: var(--dark);
+    background: var(--purple);
+}
+
+.pixel-button:hover {
+    transform: translate(-2px, -2px);
+}
+
+.pixel-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--dark);
+}
+
+
+/* Exportar */
+
+.export-button {
+    width: 100%;
+    min-height: 46px;
+
+    margin-top: 17px;
+    padding: 10px;
+
+    color: var(--pink-dark);
+    background: var(--pink-light);
+
+    border: 3px dashed var(--pink-dark);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+
+    transition: background 0.2s ease;
+}
+
+.export-button:hover {
+    background: #ffc1e6;
+}
+
+   /* 12. PAINEL DE PERSONALIZAÇÃO */
+
+.customization {
+    min-width: 0;
+    padding: 19px;
+
+    background: #fbf8ff;
+
+    border: 3px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--purple-light);
+}
+
+.customization-heading {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+
+    text-align: center;
+
+    border-bottom: 2px dashed #d9c8e9;
+}
+
+.customization-heading .pixel-label {
+    margin-bottom: 13px;
+}
+
+.customization-heading h2 {
+    color: var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+   /* 13. GRUPOS DE OPÇÕES */
+
+.option-group {
+    margin-bottom: 23px;
+    padding-bottom: 18px;
+
+    border-bottom: 2px dashed #dfd3eb;
+}
+
+.option-group:last-of-type {
+    border-bottom: none;
+}
+
+.option-group label {
+    display: block;
+    margin-bottom: 13px;
+
+    color: var(--purple-dark);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+   /* 14. PALETAS DE CORES */
+
+.color-options {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.color-swatch {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border: 3px solid var(--dark);
+    box-shadow: 2px 2px 0 var(--purple-light);
+
+    cursor: pointer;
+
+    transition: transform 0.15s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.12);
+}
+
+.color-swatch.selected {
+    outline: 3px dashed var(--pink-dark);
+    outline-offset: 3px;
+
+    transform: translateY(-3px);
+}
+
+
+   /* 15. SELECTS */
+
+.option-group select {
+    width: 100%;
+    min-height: 44px;
+
+    padding: 8px 10px;
+
+    color: var(--dark);
+    background: var(--white);
+
+    border: 3px solid var(--dark);
+    box-shadow: 3px 3px 0 var(--purple-light);
+
+    font-family: var(--font-retro);
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.option-group select:focus {
+    outline: none;
+    border-color: var(--pink-dark);
+}
+
+
+   /* 16. RODAPÉ DA PERSONALIZAÇÃO */
+
+.customization-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 15px;
+
+    color: var(--pink-dark);
+
+    border-top: 2px dashed var(--pink);
+
+    font-family: var(--font-pixel);
+    font-size: 7px;
+}
+
+
+   /* 17. COLEÇÃO */
+
+.collection {
+    margin-top: 55px;
+    padding: 25px;
+
+    background: var(--white);
+
+    border: 4px solid var(--dark);
+    box-shadow: var(--shadow);
+}
+
+.collection-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.collection-heading h2 {
+    color: var(--pink-dark);
+
+    font-family: var(--font-pixel);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+#closeCollection {
+    padding: 10px;
+
+    color: var(--white);
+    background: var(--pink-dark);
+
+    border: 2px solid var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 8px;
+}
+
+
+/* Grade */
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 18px;
+}
+
+#emptyMessage {
+    padding: 30px 10px;
+
+    color: var(--gray);
+    text-align: center;
+
+    font-size: 24px;
+}
+
+
+/* Cartões criados pelo JavaScript */
+
+.doll-card {
+    min-width: 0;
+    padding: 13px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+
+    background: var(--purple-light);
+
+    border: 3px solid var(--dark);
+    box-shadow: 3px 3px 0 var(--pink);
+}
+
+.doll-preview {
+    width: 100%;
+    height: 170px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f7cce9;
+
+    border: 2px dashed var(--pink-dark);
+}
+
+.doll-preview svg {
+    width: 100%;
+    height: 100%;
+    max-width: 125px;
+
+    shape-rendering: crispEdges;
+    image-rendering: pixelated;
+}
+
+.doll-card strong {
+    color: var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 8px;
+
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.doll-card button {
+    width: 100%;
+    min-height: 35px;
+
+    padding: 7px;
+
+    color: var(--dark);
+    background: var(--yellow);
+
+    border: 2px solid var(--dark);
+
+    font-family: var(--font-pixel);
+    font-size: 8px;
+}
+
+.doll-card .delete-doll {
+    color: var(--white);
+    background: var(--pink-dark);
+}
+
+
+   /* 18. RODAPÉ */
+
+footer {
+    margin-top: 55px;
+    padding: 25px 15px;
+
+    color: var(--white);
+    background: var(--dark);
+
+    border-top: 5px solid var(--pink);
+
+    text-align: center;
+}
+
+footer span {
+    color: var(--pink);
+
+    font-family: var(--font-pixel);
+    font-size: 9px;
+}
+
+
+   /* 19. ANIMAÇÃO */
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+   /* 20. TABLETS */
+
+@media (max-width: 850px) {
+
+    .studio-content {
+        grid-template-columns: 1fr;
+    }
+
+    .character-stage {
+        min-height: 420px;
+    }
+
+    #avatar {
+        width: 250px;
+        height: 350px;
+    }
+
+    .customization {
+        width: 100%;
+    }
+
+}
+
+
+   /* 21. CELULARES */
+
+@media (max-width: 520px) {
+
+    .topbar {
+        padding: 14px 4%;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 11px;
+    }
+
+    .system-status {
+        font-size: 7px;
+    }
+
+    .collection-button {
+        font-size: 7px;
+    }
+
+    .container {
+        width: 94%;
+        padding-top: 30px;
+    }
+
+    .welcome {
+        margin-bottom: 30px;
+    }
+
+    .welcome h1 {
+        font-size: 18px;
+    }
+
+    .welcome-description {
+        font-size: 22px;
+    }
+
+    .studio-content {
+        padding: 12px;
+        gap: 18px;
+    }
+
+    .window-header {
+        font-size: 7px;
+    }
+
+    .character-area {
+        padding: 12px;
+    }
+
+    .character-stage {
+        min-height: 370px;
+    }
+
+    #avatar {
+        width: 220px;
+        height: 310px;
+    }
+
+    .main-actions {
+        gap: 9px;
+    }
+
+    .pixel-button {
+        font-size: 7px;
+    }
+
+    .export-button {
+        font-size: 7px;
+    }
+
+    .customization {
+        padding: 14px;
+    }
+
+    .customization-heading h2 {
+        font-size: 10px;
+    }
+
+    .collection {
+        padding: 15px;
+    }
+
+    .collection-heading h2 {
+        font-size: 10px;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+   /* 22. ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

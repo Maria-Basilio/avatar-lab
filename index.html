@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Avatar Lab: crie sua própria pixel doll em um universo retrô.">
+
+    <title>Avatar Lab - Retro Pixel Edition</title>
+
+    <!-- Fontes retrô -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/css/style.css">
+
+    <!-- JS -->
+    <script src="./src/js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Decoracao de fundo -->
+    <div class="background-grid"></div>
+
+    <!-- Cabeçalho -->
+    <header class="topbar">
+
+        <div class="logo">
+            <span class="logo-icon">★</span>
+            AVATAR LAB
+        </div>
+
+        <div class="system-status">
+            <span class="online-dot"></span>
+            SYSTEM ONLINE
+        </div>
+
+        <button id="collectionButton" class="collection-button">
+            ♥ COLLECTION
+            <span id="savedCount">0</span>
+        </button>
+
+    </header>
+
+    <main class="container">
+
+        <!-- Apresentação -->
+        <section class="welcome">
+
+            <p class="pixel-label">BEM-VINDO AO SEU MUNDO DIGITAL</p>
+
+            <h1>
+                CRIE SUA
+                <span>VERSÃO PIXEL!</span>
+            </h1>
+
+            <p class="welcome-description">
+                Crie seu personagem. Escolha seu estilo.
+                Faça seu pequeno mundo.
+            </p>
+
+            <div class="decorative-stars">
+                ✦　★　✧　☆
+            </div>
+
+        </section>
+
+        <!-- Estúdio -->
+        <section class="studio">
+
+            <div class="window-header">
+
+                <span>CHARACTER_CREATOR.EXE</span>
+
+                <div class="window-controls">
+                    <span>_</span>
+                    <span>□</span>
+                    <span>×</span>
+                </div>
+
+            </div>
+
+            <div class="studio-content">
+
+                <!-- Área do personagem -->
+                <section class="character-area">
+
+                    <div class="character-top">
+                        <span>PLAYER 001</span>
+                        <span>● LIVE</span>
+                    </div>
+
+                    <div class="character-stage">
+
+                        <div class="pixel-star star-one">✦</div>
+                        <div class="pixel-star star-two">★</div>
+
+                        <div id="avatar" class="avatar">
+                        </div>
+
+                        <div class="stage-floor"></div>
+
+                    </div>
+
+                    <div class="name-area">
+
+                        <label for="avatarName">Nome do Personagem:</label>
+
+                        <input
+                            type="text"
+                            id="avatarName"
+                            maxlength="16"
+                            value="PIXEL BABE"
+                        >
+
+                    </div>
+
+                    <div class="main-actions">
+
+                        <button id="randomButton" class="pixel-button pink">
+                            🎲 Aleatorio
+                        </button>
+
+                        <button id="saveButton" class="pixel-button purple">
+                            ♥ SALVO
+                        </button>
+
+                    </div>
+
+                    <button id="exportButton" class="export-button">
+                        [ Exportar Personagem ]
+                    </button>
+
+                </section>
+
+                <!-- Personalização -->
+                <section class="customization">
+
+                    <div class="customization-heading">
+
+                        <p class="pixel-label">Menu de Costumização</p>
+
+                        <h2>CONSTRUA SUA BONECA</h2>
+
+                    </div>
+
+                    <!-- Tom de pele -->
+                    <div class="option-group">
+
+                        <label>01. COR DE PELE</label>
+
+                        <div id="skinOptions" class="color-options"></div>
+
+                    </div>
+
+                    <!-- Cabelo -->
+                    <div class="option-group">
+
+                        <label for="hairStyle">02. ESTILO DE CABELO</label>
+
+                        <select id="hairStyle">
+                            <option value="long">CABELO LONGO</option>
+                            <option value="bob">PIXEL BOB</option>
+                            <option value="buns">SPACE BUNS</option>
+                            <option value="short">CABELO CURTO</option>
+                        </select>
+
+                    </div>
+
+                    <!-- Cor do cabelo -->
+                    <div class="option-group">
+
+                        <label>03. COR DE CABELO</label>
+
+                        <div id="hairOptions" class="color-options"></div>
+
+                    </div>
+
+                    <!-- Olhos -->
+                    <div class="option-group">
+
+                        <label for="eyeStyle">04. OLHOS</label>
+
+                        <select id="eyeStyle">
+                            <option value="normal">NORMAL</option>
+                            <option value="sparkle">BRILHANTES</option>
+                            <option value="sleepy">SLEEPY</option>
+                        </select>
+
+                    </div>
+
+                    <!-- Roupas -->
+                    <div class="option-group">
+
+                        <label for="outfit">05. ROUPA</label>
+
+                        <select id="outfit">
+                            <option value="pink">BUBBLEGUM POP</option>
+                            <option value="blue">DENIM ERA</option>
+                            <option value="purple">LILAC DREAM</option>
+                            <option value="black">CYBER NIGHT</option>
+                        </select>
+
+                    </div>
+
+                    <!-- Acessórios -->
+                    <div class="option-group">
+
+                        <label for="accessory">06. ACCESSORIOS</label>
+
+                        <select id="accessory">
+                            <option value="stars">STAR CLIPS</option>
+                            <option value="headphones">FONES DE OUVIDO</option>
+                            <option value="glasses">OCULOS</option>
+                            <option value="none">NENHUM</option>
+                        </select>
+
+                    </div>
+
+                    <div class="customization-footer">
+                        <span>✦ PIXEL POWERED</span>
+                        <span>VERSAO 1.0</span>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+        <!-- Coleção -->
+        <section id="collectionSection" class="collection hidden">
+
+            <div class="collection-heading">
+
+                <h2>MINHA COLEÇÃO ♥</h2>
+
+                <button id="closeCollection">[ CLOSE X ]</button>
+
+            </div>
+
+            <div id="collectionGrid" class="collection-grid"></div>
+
+            <p id="emptyMessage">
+                SUA COLEÇÃO ESTÁ VAZIA...CRIE SUA PRIMEIRA BONECA!
+            </p>
+
+        </section>
+
+        <footer>
+            <span>AVATAR LAB - 2026</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>
